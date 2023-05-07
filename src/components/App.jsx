@@ -3,6 +3,7 @@ import ContactForm from './ContactForm';
 import Filter from './Filter';
 import ContactList from './ContactList';
 import { debounce } from 'lodash';
+import css from './App.module.css';
 
 class App extends Component {
   state = {
@@ -16,20 +17,28 @@ class App extends Component {
   };
 
   onChangeFilterInput = debounce(event => {
-    this.setState({ filter: event.target.value.toLowerCase() });
+    this.setState({ filter: event.target.value.trim().toLowerCase() });
   }, 300);
 
   render() {
-    console.log(this.state.filter); //delete
+    // console.log(this.state.filter); //delete
     // const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
-      <div className="app">
+      <div className={css.app}>
         <h1>Phonebook</h1>
         <ContactForm />
-        <h2>Contacts</h2>
-        <Filter value={this.state.filter} onChange={this.onChangeFilterInput} />
-        <ContactList contacts={this.state.contacts} />
+        <section className={css.contacts}>
+          <h2>Contacts</h2>
+          <Filter
+            value={this.state.filter}
+            onChange={this.onChangeFilterInput}
+          />
+          <ContactList
+            contacts={this.state.contacts}
+            filter={this.state.filter}
+          />
+        </section>
       </div>
     );
   }

@@ -10,15 +10,14 @@ Filter.propTypes = {
 
 function Filter({ inputValue, onChange }) {
   return (
-    <>
+    <div className={css.filter}>
       <p>Find contacts by name</p>
       <input
         type="text"
         value={inputValue}
         onChange={onChange}
-        className={css.input}
+        className={css.filter__input}
       ></input>
-      <p>Input value: {inputValue}</p>
-    </>
+    </div>
   );
 }
