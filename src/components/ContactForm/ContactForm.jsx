@@ -1,6 +1,5 @@
 import { Component } from 'react';
 
-import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -8,7 +7,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form action="">
+      <form action="" className={css.form}>
         <label>
           <span>Name</span>
           <input
