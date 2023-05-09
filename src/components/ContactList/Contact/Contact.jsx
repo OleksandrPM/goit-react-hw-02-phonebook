@@ -6,14 +6,17 @@ export default Contact;
 Contact.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
-function Contact({ name, number }) {
+function Contact({ name, number, onClick }) {
   return (
     <>
       <p className={css.name}>{name}:</p>
       <p className={css.number}>{number}</p>
-      <button className={css.delete_btn}>Delete</button>
+      <button name="deleteBtn" className={css.delete_btn} onClick={onClick}>
+        Delete
+      </button>
     </>
   );
 }

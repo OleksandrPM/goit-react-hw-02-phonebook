@@ -4,3 +4,9 @@
   flex-direction: column;
   gap: 20px;
 }
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

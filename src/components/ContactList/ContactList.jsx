@@ -7,9 +7,10 @@ export default ContactList;
 ContactList.propTypes = {
   contacts: PropTypes.array.isRequired,
   filter: PropTypes.string.isRequired,
+  onBtnClick: PropTypes.func.isRequired,
 };
 
-function ContactList({ contacts, filter }) {
+function ContactList({ contacts, filter, onBtnClick }) {
   const renderingContacts = filterContacts(contacts, filter);
   return (
     <>
@@ -20,7 +21,11 @@ function ContactList({ contacts, filter }) {
               const { id, name, number } = contact;
               return (
                 <li className={css.contact_item} key={id}>
-                  <Contact name={name} number={number} />
+                  <Contact
+                    name={name}
+                    number={number}
+                    onClick={()=>onBtnClick(id)}
+                  />
                 </li>
               );
             })}
